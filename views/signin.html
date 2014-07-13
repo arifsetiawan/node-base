@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block body %}
+
+<form class="form-signin" role="form" method="post" >
+  <h2 class="form-signin-heading">App Sign in</h2>
+
+  {% if messages %}
+  <ul>
+  {% for message in messages %}
+    <li>{{ message }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+  <br/> 
+
+  <input id="username" name="username" type="email" class="form-control" placeholder="Email address" required autofocus>
+  <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
