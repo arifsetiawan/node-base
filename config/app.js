@@ -34,6 +34,7 @@ module.exports = {
   webPrefix: webPrefix,
   port: port,
   staticHost: staticHost,
+  appName: appName,
 
   // dir
   uploadDir : uploadDir,

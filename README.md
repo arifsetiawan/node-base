@@ -19,13 +19,12 @@ This is template for Node.js based app.
 
 ## Project Structure
 
-* **/config.** app config
+* **/config.** app config, routes, database init and others
 * **/controllers.** controller to handle request-response from routes
 * **/lib.** common functions
 * **/middleware.** express middleware functions
 * **/models.** model data
 * **/public.** public assets
-* **/routes.** app routes
 * **/test.** test codes
 * **/tools.** some tools
 * **/views.** html views with swig template engine

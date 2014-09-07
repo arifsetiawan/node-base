@@ -19,7 +19,7 @@ var version = '1.0.0'
 var app = express();
 
 // db
-var db = require('./lib/database')();
+var db = require('./config/database')();
 
 // passport setup
 require('./lib/passport')(app, passport);
@@ -57,7 +57,7 @@ app.use(passport.session());
 app.use(flash());
 
 // routes
-var routes = require('./routes')(app, passport)
+var routes = require('./config/routes')(app, passport)
 
 // after routes, catch 404 and 500
 app.use(function(req, res, next){
