@@ -20,7 +20,7 @@ module.exports = function(app, collectionName) {
     });
   }
 
-  var upsert = function (check, update, data, cb) {
+  var upsert = function (check, data, cb) {
 
     app.db.collection(collectionName, function(err, collection) {     
       if (err) {
@@ -94,6 +94,18 @@ module.exports = function(app, collectionName) {
     });
   }
 
+  var findN = function(query, sort, skip, limit, cb) {
+    //db.collection.find().sort( { _id : -1 } ).limit(1);
+    app.db.collection(collectionName, function(err, collection) { 
+      if (err) {
+        cb(err);
+      }
+      else {
+        collection.find(query).sort(sort).skip(skip).limit(limit).toArray(cb);
+      }
+    });
+  }
+
   var remove = function(query, cb) {
 
     app.db.collection(collectionName, function(err, collection) { 
@@ -128,6 +140,10 @@ module.exports = function(app, collectionName) {
     });
   }
 
+  var collection = function(cb) {
+    app.db.collection(collectionName, cb);
+  }
+
   return {
     insert: insert,
     upsert: upsert,
@@ -135,9 +151,11 @@ module.exports = function(app, collectionName) {
     list: list,
     listWithParam: listWithParam,
     findOne: findOne,
+    findN: findN,
     remove: remove,
     drop: drop,
-    count: count
+    count: count,
+    collection: collection
   }
 
 }

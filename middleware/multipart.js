@@ -50,13 +50,13 @@ exports.do = function(req, res, next) {
     res.end(chunk, encoding);
     
     /*
-    // Optional. delete temp when done
+    // Optional. delete temp files when processing
     if (req.files) {
-      if (req.files.file) {
-          file = req.files.file;
-          console.log(file.path);
-          if (fs.existsSync(file.path))
-            fs.unlinkSync(file.path);
+      for (file in req.files) {
+        var fileData = req.files[file];
+        console.log('Delete file', fileData.path);
+        if (fs.existsSync(fileData.path))
+          fs.unlinkSync(fileData.path);
       }
     }
     */
